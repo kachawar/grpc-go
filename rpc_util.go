@@ -299,7 +299,7 @@ func (o FailFastCallOption) after(c *callInfo, attempt *csAttempt) {}
 // MaxCallRecvMsgSize returns a CallOption which sets the maximum message size
 // in bytes the client can receive.
 func MaxCallRecvMsgSize(bytes int) CallOption {
-	return MaxRecvMsgSizeCallOption{MaxRecvMsgSize: bytes}
+	return MaxRecvMsgSizeCallOption{MaxRecvMsgSize: bytes *1024}
 }
 
 // MaxRecvMsgSizeCallOption is a CallOption that indicates the maximum message
@@ -322,7 +322,7 @@ func (o MaxRecvMsgSizeCallOption) after(c *callInfo, attempt *csAttempt) {}
 // MaxCallSendMsgSize returns a CallOption which sets the maximum message size
 // in bytes the client can send.
 func MaxCallSendMsgSize(bytes int) CallOption {
-	return MaxSendMsgSizeCallOption{MaxSendMsgSize: bytes}
+	return MaxSendMsgSizeCallOption{MaxSendMsgSize: bytes*1024}
 }
 
 // MaxSendMsgSizeCallOption is a CallOption that indicates the maximum message
